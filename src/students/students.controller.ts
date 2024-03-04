@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { StudentsService } from './students.service';
 import { CreateStudentDto } from './dto/create-student.dto';
-import { StudentValidatorInterceptor } from 'src/common/interceptors/Student.validator.interceptor';
+import { StudentValidatorInterceptor } from '../common/interceptors/Student.validator.interceptor';
 import { ApiBody, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('students')
