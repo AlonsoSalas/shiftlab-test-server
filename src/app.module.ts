@@ -1,8 +1,6 @@
 import { resolve } from 'path';
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { CoursesModule } from './courses/courses.module';
 import { ResultsModule } from './results/results.module';
 import { StudentsModule } from './students/students.module';
@@ -20,8 +18,8 @@ import { MorganMiddleware } from './middlewares/morgan.middleware';
     ResultsModule,
     DatabaseModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
