@@ -50,7 +50,9 @@ export class ResultsService {
   }
 
   async remove(id: number): Promise<void> {
-    const result = await this.findOne(id);
-    await this.resultRepository.remove(result);
+    const result = await this.resultRepository.delete(id);
+    if (result.affected === 0) {
+      throw new NotFoundException(`Result with ID ${id} not found`);
+    }
   }
 }
