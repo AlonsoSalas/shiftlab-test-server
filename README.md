@@ -1,73 +1,103 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# ShiftLab Technical Assesment
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## API Server
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+This NestJS server provides APIs for managing courses, results, and students.
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
+## Project structure
 
 ```bash
-$ npm install
+├── src/ # Source files
+│ ├── courses/ # Courses module
+│ │ ├── controllers/ # Controllers for courses module
+│ │ ├── dto/ # Data transfer objects for courses module
+│ │ ├── entities/ # Entities for courses module
+│ │ ├── services/ # Services for courses module
+│ │ └── courses.module.ts # Courses module entry file
+│ ├── results/ # Results module
+│ │ ├── controllers/ # Controllers for results module
+│ │ ├── dto/ # Data transfer objects for results module
+│ │ ├── entities/ # Entities for results module
+│ │ ├── services/ # Services for results module
+│ │ └── results.module.ts # Results module entry file
+│ ├── students/ # Students module
+│ │ ├── controllers/ # Controllers for students module
+│ │ ├── dto/ # Data transfer objects for students module
+│ │ ├── entities/ # Entities for students module
+│ │ ├── services/ # Services for students module
+│ │ └── students.module.ts # Students module entry file
+│ ├── app.module.ts # Main application module
+│ └── main.ts # Application entry file
+├── Dockerfile # Docker configuration file
+├── docker-compose.yml # Docker Compose configuration file
+└── README.md # Project README file
 ```
 
-## Running the app
+## Tech
+
+- [Nestjs](https://docs.nestjs.com/) - A framework built with TypeScript for building efficient, reliable, and scalable server-side applications. It provides a structured and organized architecture for developing APIs.
+- [Postgres](https://www.postgresql.org/) - A powerful, open-source relational database management system (RDBMS) known for its reliability, robustness, and feature-rich capabilities. It is used as the database for storing and managing application data.
+- [Typescript](https://www.typescriptlang.org/) - A superset of JavaScript that adds static typing and other features to enhance the development experience and improve code quality. It allows developers to catch errors early and write more maintainable code.
+- [Docker](https://www.docker.com/) - A platform for building, shipping, and running applications in containers. Docker containers provide a lightweight, portable, and consistent environment for deploying applications, making it easier to manage dependencies and streamline the deployment process.
+- [Swagger](https://swagger.io/) - An open-source framework for designing, building, documenting, and consuming RESTful APIs. It provides tools for generating interactive API documentation, making it easier for developers to understand and test APIs.
+- [Jest](https://jestjs.io/) -A delightful JavaScript testing framework with a focus on simplicity and flexibility. It provides a rich set of features for writing and running tests, including built-in support for mocking, assertion, and code coverage analysis. Jest is commonly used for unit and integration testing in JavaScript and TypeScript projects.
+
+## Getting started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/) (Node Package Manager)
+- [Docker](https://www.docker.com/) (optional, for running with Docker)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Set up environment variables:
+   Create a `.env` file in the root directory and add the following variables:
+   ```bash
+    DB_HOST= localhost
+    DB_PORT= 5432
+    DB_DATABASE= test
+    DB_USERNAME= test
+    DB_PASSWORD= test
+    REACT_APP_URL=http://localhost:4000
+   ```
+
+### Running Server
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm run start
 ```
 
-## Test
+### API Documentation
+
+The API documentation is generated using Swagger. You can access it at http://localhost:3000/docs.
+
+### Development
+
+#### Running tests
+
+To run tests, use:
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm run test
 ```
 
-## Support
+## Docker
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+To run the application containerized, follow these steps:
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+1. Navigate to the parent folder of the server where the docker-compose.yml file is located.
+2. Open a terminal or command prompt in this directory.
+3. Execute the following command:
+   ```bash
+   docker-copmose up
+   ```
