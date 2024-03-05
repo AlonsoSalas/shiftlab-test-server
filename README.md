@@ -54,7 +54,7 @@ This NestJS server provides APIs for managing courses, results, and students.
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/AlonsoSalas/shiftlab-test-server.git
    ```
 2. Install dependencies:
    ```bash
